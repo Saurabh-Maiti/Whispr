@@ -44,6 +44,9 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     val auth_state=authViewModel.auth_state.observeAsState()
+    LaunchedEffect(auth_state.value) {
+
+    }
     val context= LocalContext.current
     LaunchedEffect(auth_state.value) {
         when(auth_state.value){

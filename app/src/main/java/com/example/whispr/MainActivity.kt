@@ -29,6 +29,7 @@ class MainActivity : ComponentActivity() {
             WhisprTheme {
                 val authViewModel: AuthViewModel by viewModels()
                 My_App_Navigation(authViewModel)
+                //profile_screen_page()
             }
         }
     }

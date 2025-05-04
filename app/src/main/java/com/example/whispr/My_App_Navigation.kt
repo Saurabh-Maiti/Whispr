@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.whispr.screens.home_screen
 import com.example.whispr.screens.login_screen
+import com.example.whispr.screens.profile_screen_page
 import com.example.whispr.screens.signup_screen
 import com.example.whispr.screens.start_screen
 
@@ -28,5 +29,9 @@ fun My_App_Navigation(authViewModel: AuthViewModel)
         composable(route="home_screen") {
             home_screen(navController, authViewModel)
         }
+        composable(route="edit_mode_screen") {
+           profile_screen_page(navController, authViewModel)
+        }
+
     }
 }

@@ -19,21 +19,21 @@ import com.example.whispr.Auth_State
 @Composable
 fun home_screen(navController: NavController,authViewModel: AuthViewModel)
 {
-    val auth_state=authViewModel.auth_state.observeAsState()
-    LaunchedEffect(auth_state.value) {
-        when(auth_state.value){
-            is Auth_State.unauthenticated->navController.navigate(route = "login_screen")
-            else -> {}
-        }
-    }
+//    val auth_state=authViewModel.auth_state.observeAsState()
+//    LaunchedEffect(auth_state.value) {
+//        when(auth_state.value){
+//            is Auth_State.unauthenticated->navController.navigate(route = "login_screen")
+//            else -> {}
+//        }
+//    }
     Column(modifier = Modifier.fillMaxSize().background(Color.White) ,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally)
     {
         Button(onClick = {
-            authViewModel.signout()
+            navController.navigate(route = "edit_mode_screen")
         }) {
-            Text("Sign out")
+            Text("Edit Profile")
         }
     }
 }
