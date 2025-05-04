@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -80,22 +81,46 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
         OutlinedTextField(value = name,
             onValueChange = { name = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Name") })
+            label = { Text("Name") },
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            singleLine = true)
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = email,
             onValueChange = { email = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Email") })
+            label = { Text("Email") },
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            singleLine = true)
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = password,
             onValueChange = { password = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Password") })
+            label = { Text("Password") },
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            singleLine = true)
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = confirm_password,
             onValueChange = { confirm_password=it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Confirm Password") })
+            label = { Text("Confirm Password") },
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            singleLine = true)
         Spacer(Modifier.padding(top = 24.dp))
         Button(modifier = Modifier
             .width(196.dp)

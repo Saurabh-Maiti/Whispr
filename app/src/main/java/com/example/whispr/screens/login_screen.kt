@@ -79,12 +79,26 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
         OutlinedTextField(value = email,
             onValueChange = { email = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Email") })
+            label = { Text("Email") },
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            singleLine = true
+            )
         Spacer(Modifier.padding(top = 18.dp))
         OutlinedTextField(value = password,
             onValueChange = { password = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Password") })
+            label = { Text("Password") },
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            singleLine = true
+            )
         Spacer(Modifier.padding(top = 24.dp))
         Button(modifier = Modifier
             .width(196.dp)
