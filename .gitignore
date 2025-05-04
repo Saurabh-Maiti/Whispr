@@ -1,0 +1,13 @@
+# Android & Firebase
+*.iml
+.gradle/
+local.properties
+/.idea/
+/build
+.DS_Store
+
+# Firebase config
+/app/google-services.json
+
+# Jetpack Compose cache
+.compose-cache/
