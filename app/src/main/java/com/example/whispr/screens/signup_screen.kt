@@ -18,6 +18,7 @@ import com.example.whispr.R
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -87,7 +88,15 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal
             ),
-            singleLine = true)
+            singleLine = true,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.Black,
+                unfocusedContainerColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.Black,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            ))
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = email,
             onValueChange = { email = it },
@@ -98,7 +107,15 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal
             ),
-            singleLine = true)
+            singleLine = true,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.Black,
+                unfocusedContainerColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.Black,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            ))
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = password,
             onValueChange = { password = it },
@@ -109,7 +126,15 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal
             ),
-            singleLine = true)
+            singleLine = true,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.Black,
+                unfocusedContainerColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.Black,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            ))
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = confirm_password,
             onValueChange = { confirm_password=it },
@@ -120,7 +145,15 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal
             ),
-            singleLine = true)
+            singleLine = true,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.Black,
+                unfocusedContainerColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.Black,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            ))
         Spacer(Modifier.padding(top = 24.dp))
         Button(modifier = Modifier
             .width(196.dp)
@@ -151,12 +184,8 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                     append("Login")
                 }
             }
-
             BasicText(text = annotatedText)
         }
-
-
-
     }
 }
 

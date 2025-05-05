@@ -2,6 +2,7 @@ package com.example.whispr.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -75,7 +76,9 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Text("Saurabh Maiti", fontSize = 20.sp)
         Spacer(modifier=Modifier.padding(22.dp))
         Box(
-            modifier = Modifier
+            modifier = Modifier.clickable{
+
+            }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)) // round corners
@@ -90,7 +93,9 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         }
         Spacer(modifier=Modifier.padding(8.dp))
         Box(
-            modifier = Modifier
+            modifier = Modifier.clickable{
+
+            }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)) // round corners
@@ -106,7 +111,9 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Spacer(modifier=Modifier.padding(8.dp))
 
         Box(
-            modifier = Modifier
+            modifier = Modifier.clickable{
+
+            }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)) // round corners
@@ -122,7 +129,9 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Spacer(modifier=Modifier.padding(8.dp))
 
         Box(
-            modifier = Modifier
+            modifier = Modifier.clickable{
+
+            }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)) // round corners
@@ -138,7 +147,9 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Spacer(modifier=Modifier.padding(8.dp))
 
         Box(
-            modifier = Modifier
+            modifier = Modifier.clickable{
+
+            }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)) // round corners
@@ -154,7 +165,9 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Spacer(modifier=Modifier.padding(8.dp))
 
         Box(
-            modifier = Modifier
+            modifier = Modifier.clickable{
+
+            }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp)) // round corners

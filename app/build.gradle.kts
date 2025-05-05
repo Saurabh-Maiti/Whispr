@@ -73,6 +73,10 @@ dependencies {
     implementation ("androidx.compose.runtime:runtime-livedata:1.6.0")
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.compose.material3:material3:1.3.2")
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.2")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.4.0-alpha13")
+
 
 
 

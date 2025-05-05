@@ -20,6 +20,7 @@ import com.example.whispr.R
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -88,7 +89,15 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal
             ),
-            singleLine = true
+            singleLine = true,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.Black,
+                unfocusedContainerColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.Black,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            )
             )
         Spacer(Modifier.padding(top = 18.dp))
         OutlinedTextField(value = password,
@@ -100,7 +109,15 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal
             ),
-            singleLine = true
+            singleLine = true,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.Black,
+                unfocusedContainerColor = Color.Black,
+                focusedBorderColor = Color.Black,
+                unfocusedBorderColor = Color.Black,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            )
             )
         Spacer(Modifier.padding(top = 24.dp))
         Button(modifier = Modifier

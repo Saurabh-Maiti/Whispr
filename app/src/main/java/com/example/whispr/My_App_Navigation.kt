@@ -5,6 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.whispr.screens.Add_postScreen
 import com.example.whispr.screens.home_screen
 import com.example.whispr.screens.login_screen
 import com.example.whispr.screens.profile_screen_page
@@ -31,6 +32,9 @@ fun My_App_Navigation(authViewModel: AuthViewModel)
         }
         composable(route="edit_mode_screen") {
            profile_screen_page(navController, authViewModel)
+        }
+        composable(route="add_post_screen") {
+            Add_postScreen(navController, authViewModel)
         }
 
     }

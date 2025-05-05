@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.example.whispr.screens.Add_postScreen
 import com.example.whispr.screens.login_screen
 import com.example.whispr.screens.signup_screen
 import com.example.whispr.screens.start_screen
@@ -29,7 +30,6 @@ class MainActivity : ComponentActivity() {
             WhisprTheme {
                 val authViewModel: AuthViewModel by viewModels()
                 My_App_Navigation(authViewModel)
-                //profile_screen_page()
             }
         }
     }
