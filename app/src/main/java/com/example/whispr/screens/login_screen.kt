@@ -83,7 +83,7 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
         OutlinedTextField(value = email,
             onValueChange = { email = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Email") },
+            label = { Text("Email", color = Color.Black) },
             textStyle = TextStyle(
                 color = Color.Black,
                 fontSize = 16.sp,
@@ -91,10 +91,10 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
             ),
             singleLine = true,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color.Black,
-                unfocusedContainerColor = Color.Black,
-                focusedBorderColor = Color.Black,
-                unfocusedBorderColor = Color.Black,
+                focusedContainerColor = Color(0xFFD9D9D9),
+                unfocusedContainerColor = Color(0xFFD9D9D9),
+                focusedBorderColor = Color(0xFFD9D9D9),
+                unfocusedBorderColor = Color(0xFFD9D9D9),
                 focusedTextColor = Color.Black,
                 unfocusedTextColor = Color.Black
             )
@@ -103,7 +103,7 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
         OutlinedTextField(value = password,
             onValueChange = { password = it },
             shape = RoundedCornerShape(16.dp),
-            label = { Text("Password") },
+            label = { Text("Password", color = Color.Black) },
             textStyle = TextStyle(
                 color = Color.Black,
                 fontSize = 16.sp,
@@ -111,10 +111,10 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
             ),
             singleLine = true,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color.Black,
-                unfocusedContainerColor = Color.Black,
-                focusedBorderColor = Color.Black,
-                unfocusedBorderColor = Color.Black,
+                focusedContainerColor = Color(0xFFD9D9D9),
+                unfocusedContainerColor = Color(0xFFD9D9D9),
+                focusedBorderColor = Color(0xFFD9D9D9),
+                unfocusedBorderColor = Color(0xFFD9D9D9),
                 focusedTextColor = Color.Black,
                 unfocusedTextColor = Color.Black
             )
