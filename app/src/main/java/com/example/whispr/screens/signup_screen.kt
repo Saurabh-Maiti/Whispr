@@ -188,4 +188,3 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
         }
     }
 }
-

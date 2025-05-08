@@ -31,7 +31,7 @@ fun My_App_Navigation(authViewModel: AuthViewModel)
             home_screen(navController, authViewModel)
         }
         composable(route="edit_mode_screen") {
-           profile_screen_page(navController, authViewModel)
+            profile_screen_page(navController, authViewModel)
         }
         composable(route="add_post_screen") {
             Add_postScreen(navController, authViewModel)

@@ -87,7 +87,7 @@ fun home_screen(navController: NavController,authViewModel: AuthViewModel) {
                 Spacer(modifier = Modifier.width(8.dp))
                 Column(modifier = Modifier.padding(start = 3.dp,
                     top = 22.dp
-                    ), horizontalAlignment =  Alignment.CenterHorizontally) {
+                ), horizontalAlignment =  Alignment.CenterHorizontally) {
                     Text(text = "Whispr", color = Color.White, fontSize = 38.sp)
                     Text(text = "Undress your thoughts.", color = Color.White, fontSize = 18.sp)
                 }

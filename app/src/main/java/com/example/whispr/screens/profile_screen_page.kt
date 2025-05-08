@@ -50,14 +50,14 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(108.dp)
+                .height(120.dp)
                 .clip(RoundedCornerShape(bottomStart = 38.dp, bottomEnd = 38.dp))
                 .background(Color(0xFFFF735C)),
             contentAlignment = Alignment.Center
         ) {
             Text(
-                "Edit Mode: Activated!",
-                fontSize = 24.sp,
+                "Profile Page",
+                fontSize = 32.sp,
                 fontWeight = FontWeight.Light,
                 modifier = Modifier.padding(top = 8.dp),
                 color = Color.Black
@@ -77,7 +77,6 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Spacer(modifier=Modifier.padding(22.dp))
         Box(
             modifier = Modifier.clickable{
-
             }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
@@ -145,25 +144,6 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
             )
         }
         Spacer(modifier=Modifier.padding(8.dp))
-
-        Box(
-            modifier = Modifier.clickable{
-
-            }
-                .padding(horizontal = 28.dp) // space from left and right edges
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(16.dp)) // round corners
-                .background(Color(0xFFD9D9D9)), // background color
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                "Follow Me",
-                fontSize = 22.sp,
-                modifier = Modifier.padding(12.dp)
-            )
-        }
-        Spacer(modifier=Modifier.padding(8.dp))
-
         Box(
             modifier = Modifier.clickable{
 

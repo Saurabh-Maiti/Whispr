@@ -58,7 +58,7 @@ class AuthViewModel: ViewModel() {
                 }
                 else
                 {
-                   _auth_state.value= Auth_State.Error("Unexpected error occurred")
+                    _auth_state.value= Auth_State.Error("Unexpected error occurred")
                 }
             }
 

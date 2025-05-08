@@ -95,10 +95,9 @@ fun Add_postScreen(navController: NavController,authViewModel: AuthViewModel) {
         }, colors = ButtonDefaults.buttonColors(
             containerColor = Color(0xFFFF735C),
 
-        ),) {
+            ),) {
             Text("Smash it! 🔥",color=Color.White, fontSize = 16.sp)
         }
     }
 
 }
-
