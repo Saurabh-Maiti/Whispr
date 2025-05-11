@@ -79,24 +79,6 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 contentScale = ContentScale.Fit
             )
         }
-        OutlinedTextField(value = name,
-            onValueChange = { name = it },
-            shape = RoundedCornerShape(16.dp),
-            label = { Text("Name",color = Color.Black) },
-            textStyle = TextStyle(
-                color = Color.Black,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Normal
-            ),
-            singleLine = true,
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFFD9D9D9),
-                unfocusedContainerColor = Color(0xFFD9D9D9),
-                focusedBorderColor = Color(0xFFD9D9D9),
-                unfocusedBorderColor = Color(0xFFD9D9D9),
-                focusedTextColor = Color.Black,
-                unfocusedTextColor = Color.Black
-            ))
         Spacer(Modifier.padding(top = 14.dp))
         OutlinedTextField(value = email,
             onValueChange = { email = it },

@@ -93,12 +93,11 @@ fun home_screen(navController: NavController, authViewModel: AuthViewModel) {
                     Text(text = "Undress your thoughts.", color = Color.White, fontSize = 18.sp)
                 }
             }
-            Text(text = "", color = Color.White) // Spacer Text
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(text = "Hey Saurabh!", fontSize = 18.sp)
+        Text(text = "Hey Maverick!", fontSize = 18.sp)
 
         Spacer(modifier = Modifier.height(16.dp))
 
