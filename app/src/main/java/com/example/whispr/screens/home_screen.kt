@@ -33,7 +33,7 @@ fun ConfessionCard(text: String) {
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(0.5.dp, Color.Black),
         colors = CardDefaults.cardColors(
-            Color(0xFFD9D9D9)
+            Color(0xFFF0F0F0)
         )
     ) {
         Text(
