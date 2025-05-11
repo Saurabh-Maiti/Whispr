@@ -103,8 +103,10 @@ fun Add_postScreen(navController: NavController, authViewModel: AuthViewModel) {
                 {
                     // Add to Firebase Code
                     val db = FirebaseFirestore.getInstance()
-                    val confession = hashMapOf("text" to confess)
-
+                    val confession = hashMapOf(
+                        "text" to confess,
+                        "timestamp" to com.google.firebase.Timestamp.now()
+                    )
                     db.collection("confessions")
                         .add(confession)
                         .addOnSuccessListener {

@@ -27,9 +27,11 @@ fun My_App_Navigation(authViewModel: AuthViewModel)
         composable(route="signup_screen") {
             signup_screen(navController, authViewModel)
         }
-        composable(route="home_screen") {
-            home_screen(navController, authViewModel)
+        composable(route = "home_screen") {
+
+            home_screen(navController = navController, authViewModel)
         }
+
         composable(route="edit_mode_screen") {
             profile_screen_page(navController, authViewModel)
         }

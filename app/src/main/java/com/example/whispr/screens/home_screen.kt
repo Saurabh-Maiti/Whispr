@@ -27,13 +27,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 @Composable
 fun ConfessionCard(text: String) {
     Card(
-        modifier = Modifier
+        modifier = Modifier.defaultMinSize(minHeight = 120.dp)
             .fillMaxWidth()
             .padding(horizontal = 4.dp),
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(0.5.dp, Color.Black),
         colors = CardDefaults.cardColors(
-            Color(0xFFF0F0F0)
+            Color(0xFFD9D9D9)
         )
     ) {
         Text(
@@ -56,13 +56,15 @@ fun home_screen(navController: NavController, authViewModel: AuthViewModel) {
     LaunchedEffect(Unit) {
         FirebaseFirestore.getInstance()
             .collection("confessions")
+            .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING)
             .addSnapshotListener { snapshot, e ->
                 if (e == null && snapshot != null) {
                     val texts = snapshot.documents.mapNotNull { it.getString("text") }
-                    confessions = texts.reversed() // Latest on top
+                    confessions = texts
                 }
             }
     }
+
 
     Column(
         modifier = Modifier
@@ -81,8 +83,10 @@ fun home_screen(navController: NavController, authViewModel: AuthViewModel) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+
                 Image(
-                    painter = painterResource(id = R.drawable.man),
+                    painter = painterResource(
+                        id = R.drawable.man),
                     contentDescription = "",
                     modifier = Modifier
                         .size(80.dp)

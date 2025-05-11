@@ -6,6 +6,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +21,8 @@ import androidx.compose.ui.unit.dp
 import com.example.whispr.R
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,6 +43,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.whispr.AuthViewModel
@@ -69,7 +76,7 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
-        Spacer(Modifier.padding(top = 80.dp))
+        Spacer(Modifier.padding(top = 75.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -85,7 +92,7 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 contentScale = ContentScale.Fit
             )
         }
-        Spacer(Modifier.padding(top = 14.dp))
+        Spacer(Modifier.padding(top = 12.dp))
         OutlinedTextField(value = email,
             onValueChange = { email = it },
             shape = RoundedCornerShape(16.dp),
@@ -105,12 +112,6 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 unfocusedTextColor = Color.Black
             ))
         Spacer(Modifier.padding(top = 14.dp))
-        Box(modifier = Modifier.width(22.dp))
-        {
-
-        }
-        Spacer(Modifier.padding(top = 14.dp))
-
         OutlinedTextField(value = password,
             visualTransformation =if (password_visible) VisualTransformation.None else PasswordVisualTransformation(),
             onValueChange = { password = it },
@@ -202,3 +203,5 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
         }
     }
 }
+
+
