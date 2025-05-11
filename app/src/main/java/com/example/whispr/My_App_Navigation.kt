@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.whispr.screens.Add_postScreen
 import com.example.whispr.screens.home_screen
 import com.example.whispr.screens.login_screen
+import com.example.whispr.screens.og
 import com.example.whispr.screens.profile_screen_page
 import com.example.whispr.screens.signup_screen
 import com.example.whispr.screens.start_screen
@@ -38,6 +39,8 @@ fun My_App_Navigation(authViewModel: AuthViewModel)
         composable(route="add_post_screen") {
             Add_postScreen(navController, authViewModel)
         }
-
+        composable(route="og") {
+            og(navController, authViewModel)
+        }
     }
 }

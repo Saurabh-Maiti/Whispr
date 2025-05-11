@@ -93,7 +93,7 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
         Spacer(modifier=Modifier.padding(8.dp))
         Box(
             modifier = Modifier.clickable{
-
+                navController.navigate(route="og")
             }
                 .padding(horizontal = 28.dp) // space from left and right edges
                 .fillMaxWidth()
