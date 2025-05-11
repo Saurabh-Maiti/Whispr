@@ -19,6 +19,8 @@ import androidx.compose.ui.unit.dp
 import com.example.whispr.R
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextButton
@@ -35,6 +37,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.whispr.AuthViewModel
@@ -45,6 +49,7 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     val auth_state=authViewModel.auth_state.observeAsState()
+    var password_visible by remember { mutableStateOf(false) }
     LaunchedEffect(auth_state.value) {
 
     }
@@ -91,8 +96,8 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
             ),
             singleLine = true,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFFD9D9D9),
-                unfocusedContainerColor = Color(0xFFD9D9D9),
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
                 focusedBorderColor = Color(0xFFD9D9D9),
                 unfocusedBorderColor = Color(0xFFD9D9D9),
                 focusedTextColor = Color.Black,
@@ -101,6 +106,7 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
             )
         Spacer(Modifier.padding(top = 18.dp))
         OutlinedTextField(value = password,
+            visualTransformation =if (password_visible) VisualTransformation.None else PasswordVisualTransformation(),
             onValueChange = { password = it },
             shape = RoundedCornerShape(16.dp),
             label = { Text("Password", color = Color.Black) },
@@ -111,13 +117,22 @@ fun login_screen(navController: NavController,authViewModel: AuthViewModel) {
             ),
             singleLine = true,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFFD9D9D9),
-                unfocusedContainerColor = Color(0xFFD9D9D9),
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
                 focusedBorderColor = Color(0xFFD9D9D9),
                 unfocusedBorderColor = Color(0xFFD9D9D9),
                 focusedTextColor = Color.Black,
                 unfocusedTextColor = Color.Black
-            )
+            ),
+            trailingIcon = {
+                val icon=if(password_visible)
+                    painterResource(id = R.drawable.hide_new)
+                else
+                    painterResource(id = R.drawable.show_new)
+                IconButton(onClick = { password_visible = !password_visible }) {
+                    Icon(painter = icon, contentDescription = null)
+                }
+            }
             )
         Spacer(Modifier.padding(top = 24.dp))
         Button(modifier = Modifier
