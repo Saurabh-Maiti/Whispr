@@ -121,7 +121,10 @@ fun home_screen(navController: NavController, authViewModel: AuthViewModel) {
                     .weight(1f)
                     .height(56.dp),
                 placeholder = { Text("Search confessions...") },
-                shape = RoundedCornerShape(8.dp)
+                shape = RoundedCornerShape(8.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.LightGray
+                )
             )
             Spacer(modifier = Modifier.width(8.dp))
             Button(
