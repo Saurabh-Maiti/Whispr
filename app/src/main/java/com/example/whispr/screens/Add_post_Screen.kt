@@ -1,5 +1,6 @@
 package com.example.whispr.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -34,13 +35,16 @@ import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.whispr.AuthViewModel
+import com.google.firebase.firestore.FirebaseFirestore
 
 @Composable
-fun Add_postScreen(navController: NavController,authViewModel: AuthViewModel) {
+fun Add_postScreen(navController: NavController, authViewModel: AuthViewModel) {
     var confess by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
@@ -66,18 +70,19 @@ fun Add_postScreen(navController: NavController,authViewModel: AuthViewModel) {
                     painter = painterResource(id = R.drawable.man),
                     contentDescription = "",
                     modifier = Modifier
-                        .padding(start = 6.dp,top=22.dp)
+                        .padding(start = 6.dp, top = 22.dp)
                         .size(70.dp)
-                        .clip(CircleShape).clickable{
+                        .clip(CircleShape)
+                        .clickable {
                             navController.navigate(route = "edit_mode_screen")
                         }
                 )
-                Spacer(modifier=Modifier.padding((8.dp)))
+                Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
                     value = confess,
                     onValueChange = { confess = it },
                     modifier = Modifier.fillMaxWidth(),
-                    placeholder = { Text("Say what you can’t say out loud...", color=Color.Black) },
+                    placeholder = { Text("Say what you can’t say out loud...", color = Color.Black) },
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedContainerColor = Color(0xFFFF735C),
                         unfocusedContainerColor = Color(0xFFFF735C),
@@ -89,15 +94,33 @@ fun Add_postScreen(navController: NavController,authViewModel: AuthViewModel) {
                 )
             }
         }
-        Spacer(modifier=Modifier.padding(16.dp))
-        Button(onClick = {
-            navController.navigate("home_screen")
-        }, colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFFFF735C),
 
-            ),) {
-            Text("Smash it! 🔥",color=Color.White, fontSize = 16.sp)
+        Spacer(modifier = Modifier.padding(16.dp))
+
+        Button(
+            onClick = {
+                if (confess.isNotBlank())
+                {
+                    val db = FirebaseFirestore.getInstance()
+                    val confession = hashMapOf("text" to confess)
+
+                    db.collection("confessions")
+                        .add(confession)
+                        .addOnSuccessListener {
+                            Toast.makeText(context, "Confession posted!", Toast.LENGTH_SHORT).show()
+                            navController.navigate("home_screen")
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(context, "Failed to post: ${it.message}", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(context, "Confession can't be empty!", Toast.LENGTH_SHORT).show()
+                }
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF735C))
+        ) {
+            Text("Smash it! 🔥", color = Color.White, fontSize = 16.sp)
         }
     }
-
 }
+

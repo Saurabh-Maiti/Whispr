@@ -3,33 +3,13 @@ package com.example.whispr.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.SegmentedButtonDefaults.Icon
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,15 +20,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.whispr.AuthViewModel
-import com.example.whispr.Auth_State
 import com.example.whispr.R
+import com.google.firebase.firestore.FirebaseFirestore
 
 @Composable
 fun ConfessionCard(text: String) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 4.dp),
         shape = RoundedCornerShape(8.dp),
     ) {
         Text(
@@ -61,12 +41,28 @@ fun ConfessionCard(text: String) {
         )
     }
 }
+
 @Composable
-fun home_screen(navController: NavController,authViewModel: AuthViewModel) {
+fun home_screen(navController: NavController, authViewModel: AuthViewModel) {
+    // Store confessions in a state list
+    var confessions by remember { mutableStateOf(listOf<String>()) }
+
+    // Listen to Firestore data
+    LaunchedEffect(Unit) {
+        FirebaseFirestore.getInstance()
+            .collection("confessions")
+            .addSnapshotListener { snapshot, e ->
+                if (e == null && snapshot != null) {
+                    val texts = snapshot.documents.mapNotNull { it.getString("text") }
+                    confessions = texts.reversed() // Latest on top
+                }
+            }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF0F0F0)), // Light gray background
+            .background(Color(0xFFF0F0F0)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Top Bar
@@ -80,19 +76,24 @@ fun home_screen(navController: NavController,authViewModel: AuthViewModel) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                // Placeholder for the profile icon
-                Image(painter = painterResource(id = R.drawable.man),"",
-                    modifier = Modifier.size(80.dp).padding(top = 22.dp).
-                    clickable{navController.navigate(route="edit_mode_screen")})
+                Image(
+                    painter = painterResource(id = R.drawable.man),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .size(80.dp)
+                        .padding(top = 22.dp)
+                        .clickable { navController.navigate(route = "edit_mode_screen") }
+                )
                 Spacer(modifier = Modifier.width(8.dp))
-                Column(modifier = Modifier.padding(start = 3.dp,
-                    top = 22.dp
-                ), horizontalAlignment =  Alignment.CenterHorizontally) {
+                Column(
+                    modifier = Modifier.padding(start = 3.dp, top = 22.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                     Text(text = "Whispr", color = Color.White, fontSize = 38.sp)
                     Text(text = "Undress your thoughts.", color = Color.White, fontSize = 18.sp)
                 }
             }
-            Text(text = "", color = Color.White) // Empty to balance the space
+            Text(text = "", color = Color.White) // Spacer Text
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -136,16 +137,21 @@ fun home_screen(navController: NavController,authViewModel: AuthViewModel) {
                     modifier = Modifier.size(28.dp)
                 )
             }
-
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Confessions
-        ConfessionCard(text = "Confession 1. Crazy Shit")
-        Spacer(modifier = Modifier.height(8.dp))
-        ConfessionCard(text = "Confession 2. Saurabh is\nduniya\nka papa hai")
-        Spacer(modifier = Modifier.height(8.dp))
-        ConfessionCard(text = "Confession 3. Gurmann\nSingh\nRandi hai")
+        // Confession List
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(bottom = 80.dp)
+        ) {
+            items(confessions) { confession ->
+                ConfessionCard(text = confession)
+            }
+        }
     }
 }
