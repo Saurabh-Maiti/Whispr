@@ -1,5 +1,6 @@
 package com.example.whispr.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,6 +31,10 @@ fun ConfessionCard(text: String) {
             .fillMaxWidth()
             .padding(horizontal = 4.dp),
         shape = RoundedCornerShape(8.dp),
+        border = BorderStroke(0.5.dp, Color.Black),
+        colors = CardDefaults.cardColors(
+            Color(0xFFF0F0F0)
+        )
     ) {
         Text(
             text = text,
