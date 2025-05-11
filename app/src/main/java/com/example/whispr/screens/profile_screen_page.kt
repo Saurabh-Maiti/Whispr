@@ -73,7 +73,7 @@ fun profile_screen_page(navController: NavController,authViewModel: AuthViewMode
                 .clip(CircleShape)
         )
         Spacer(modifier = Modifier.padding(8.dp))
-        Text("Saurabh Maiti", fontSize = 20.sp)
+        Text("Hey Maverick!", fontSize = 20.sp)
         Spacer(modifier=Modifier.padding(22.dp))
         Box(
             modifier = Modifier.clickable{
