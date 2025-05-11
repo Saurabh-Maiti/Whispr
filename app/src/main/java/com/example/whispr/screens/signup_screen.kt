@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.example.whispr.R
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.ButtonDefaults
+
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -50,7 +51,7 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
     var name by remember { mutableStateOf("") }
     var confirm_password by remember { mutableStateOf("") }
     var password_visible by remember { mutableStateOf(false) }
-
+    var expanded by remember { mutableStateOf(false) }
     val authState=authViewModel.auth_state.observeAsState()
     val context = LocalContext.current
     LaunchedEffect(authState.value) {
@@ -104,6 +105,12 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 unfocusedTextColor = Color.Black
             ))
         Spacer(Modifier.padding(top = 14.dp))
+        Box(modifier = Modifier.width(22.dp))
+        {
+
+        }
+        Spacer(Modifier.padding(top = 14.dp))
+
         OutlinedTextField(value = password,
             visualTransformation =if (password_visible) VisualTransformation.None else PasswordVisualTransformation(),
             onValueChange = { password = it },
@@ -132,6 +139,7 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                 }
             })
         Spacer(Modifier.padding(top = 14.dp))
+
         OutlinedTextField(value = confirm_password,
             visualTransformation =if (password_visible) VisualTransformation.None else PasswordVisualTransformation(),
             onValueChange = { confirm_password=it },
@@ -159,6 +167,7 @@ fun signup_screen(navController: NavController,authViewModel: AuthViewModel)
                     Icon(painter = icon, contentDescription = null)
                 }
             })
+
         Spacer(Modifier.padding(top = 24.dp))
         Button(modifier = Modifier
             .width(196.dp)

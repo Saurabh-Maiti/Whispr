@@ -101,6 +101,7 @@ fun Add_postScreen(navController: NavController, authViewModel: AuthViewModel) {
             onClick = {
                 if (confess.isNotBlank())
                 {
+                    // Add to Firebase Code
                     val db = FirebaseFirestore.getInstance()
                     val confession = hashMapOf("text" to confess)
 
